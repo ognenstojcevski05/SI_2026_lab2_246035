@@ -25,6 +25,7 @@ public List<Book> searchBookByTitle(String title) {
     return results; // јазол 10
 }
 ```
+![CFG Search](CFG1.png)
 
 
 ### B. Функција `borrowBook`
@@ -49,3 +50,4 @@ public void borrowBook(String title, String author) {
     throw new RuntimeException("Book not found"); // јазол 10
 }
 ```
+![CFG Search](CFG2.png)
