@@ -51,3 +51,26 @@ public void borrowBook(String title, String author) {
 }
 ```
 ![CFG Search](CFG2.png)
+
+## 2.Цикломатска комплексност
+Цикломатската комплексност ја пресметуваме по формулата $V(G) = P + 1$, каде што $P$ е бројот на предикатни (одлучувачки) јазли во соодветниот Control Flow Graph.
+### А. Функција `searchBookByTitle`
+Предикатни јазли се:
+1. if (title.isEmpty()) (јазол 1)
+2. for (Book book : books) (јазол 4)
+3. if (book.getTitle().equalsIgnoreCase(title) && !book.isBorrowed()) (јазол 5)
+4. if (results.isEmpty()) (јазол 8)
+   
+Пресметка: $V(G) = 4 + 1 = 5$.
+
+### B. Функција `borrowBook`
+Предикатни јазли се:
+1. if (title.isEmpty() || author.isEmpty()) (јазол 1)
+2. for (Book book : books) (јазол 3)
+3. if (book.getTitle().equalsIgnoreCase(title) && book.getAuthor().equalsIgnoreCase(author)) (јазол 4)
+4. if (!book.isBorrowed()) (јазол 5)
+   
+Пресметка: $V(G) = 4 + 1 = 5$.
+
+
+
