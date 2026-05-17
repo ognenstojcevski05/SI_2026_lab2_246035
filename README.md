@@ -24,3 +24,28 @@ public List<Book> searchBookByTitle(String title) {
     }
     return results; // јазол 10
 }
+```
+
+
+### B. Функција `borrowBook`
+
+#### Текст од кодот со нумерирани јазли (Nodes):
+```java
+public void borrowBook(String title, String author) {
+    if (title.isEmpty() || author.isEmpty()){ // јазол 1
+        throw new IllegalArgumentException("Invalid search query"); // јазол 2
+    }
+    for (Book book : books) { // јазол 3
+        if (book.getTitle().equalsIgnoreCase(title) && book.getAuthor().equalsIgnoreCase(author)) { // јазол 4
+            if (!book.isBorrowed()) { // јазол 5
+                book.setBorrowed(true); // јазол 6
+                System.out.println("Borrowed successfully"); // јазол 6
+            } else {
+                throw new RuntimeException("Book is already borrowed."); // јазол 7
+            }
+            return; // јазол 8
+        } // јазол 9
+    }
+    throw new RuntimeException("Book not found"); // јазол 10
+}
+```
